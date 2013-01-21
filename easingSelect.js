@@ -1,10 +1,10 @@
 /**
  * @author		Rob LaPlaca - rob.laplaca@gmail.com
  * @date		06/14/2010
- * @lastUpdate		06/14/2010
+ * @lastUpdate	06/14/2010
  *
  * @classDescription	Creates a selectbox that contains all the easing algorithms in
- *			the jQuery.easing object. Useful for testing animations.
+ *						the jQuery.easing object. Useful for testing animations.
  * 
  * @param {String}	id - if present, the id attribute of the resulting select that gets appended, OPTIONAL
  *

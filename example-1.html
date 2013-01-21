@@ -1,0 +1,42 @@
+<!doctype>
+<html>
+	<head>
+		<title>Easing Select Example</title>
+		<style>
+			#square { height: 100px; width: 100px; position: absolute; border: 1px solid #333; top: 50px; left: 10px; background: #ccc; }
+		</style>
+	</head>	
+	<body>
+		<form id="animate-form">
+			<button>Animate</form>
+		</form>
+
+		<div id="square"></div>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+		<script src="jquery.easing.js"></script>
+		<script src="easingSelect.js"></script>
+		<script>
+			$(function() {
+				var $form = $("#animate-form"),
+					$square = $("#square");
+
+				// Adds the easing select to the form with #easing-type
+				$form.easingSelect("easing-type");
+
+				$form.submit(function(e) {
+					e.preventDefault();
+
+					var easingValue = $("#easing-type").val(),
+						animateDuration = 2000;
+
+					$square.stop().animate({
+						left: 500
+					}, animateDuration, easingValue).animate({
+						left: 10
+					}, animateDuration, easingValue);
+				});
+			});
+		</script>
+	</body>
+</html>
