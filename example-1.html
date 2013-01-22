@@ -3,37 +3,51 @@
 	<head>
 		<title>Easing Select Example</title>
 		<style>
-			#square { height: 100px; width: 100px; position: absolute; border: 1px solid #333; top: 50px; left: 10px; background: #ccc; }
+			.square { height: 200px; width: 200px; position: absolute; border: 1px solid #333; top: 20px; left: 10px; background: #ccc; }
+			.square-2 { top: 250px; }
 		</style>
 	</head>	
 	<body>
-		<form id="animate-form">
-			<button>Animate</form>
-		</form>
-
-		<div id="square"></div>
+		<div class="square square-1"></div>
+		<div class="square square-2"></div>
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 		<script src="jquery.easing.js"></script>
 		<script src="easingSelect.js"></script>
 		<script>
 			$(function() {
-				var $form = $("#animate-form"),
-					$square = $("#square");
+				// EXAMPLE 1 - adjusts the left position of the square
+				var $square = $(".square-1"),
+					SELECT_ID = "position-easing-type";
 
 				// Adds the easing select to the form with #easing-type
-				$form.easingSelect("easing-type");
-
-				$form.submit(function(e) {
-					e.preventDefault();
-
-					var easingValue = $("#easing-type").val(),
-						animateDuration = 2000;
+				$square.easingSelect(SELECT_ID, function() {
+					var easingValue = $("#" + SELECT_ID).val(),
+						animateDuration = 1000;
 
 					$square.stop().animate({
 						left: 500
 					}, animateDuration, easingValue).animate({
 						left: 10
+					}, animateDuration, easingValue);
+				});
+
+				// EXAMPLE 2 - adjusts the size of the square
+				var $square2 = $(".square-2");
+				
+				SELECT_ID = "size-easing-type";
+
+				// Adds the easing select to the form with #easing-type
+				$square2.easingSelect(SELECT_ID, function() {
+					var easingValue = $("#" + SELECT_ID).val(),
+						animateDuration = 1000;
+
+					$square2.stop().animate({
+						width: 300,
+						height: 300
+					}, animateDuration, easingValue).animate({
+						width: 200, 
+						height: 200
 					}, animateDuration, easingValue);
 				});
 			});

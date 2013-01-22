@@ -24,7 +24,7 @@
 	$this.animate({height: 500}}, 500, $("#easing").val());
 
 */
-$.fn.easingSelect = function(id) {
+$.fn.easingSelect = function(id, cbf) {
 	var $this = $(this),
 		easingFns = $.easing,
 		$select = $('<select class="easing" id="'+id+'" />');
@@ -36,6 +36,10 @@ $.fn.easingSelect = function(id) {
 			}
 		}
 		$this.prepend($select);
+
+		if( typeof cbf !== "undefined" ) {
+			$this.change(cbf);	
+		}
 		
 	return $(this);
 }
