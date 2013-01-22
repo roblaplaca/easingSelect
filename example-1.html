@@ -20,7 +20,8 @@
 				var $square = $(".square-1"),
 					SELECT_ID = "position-easing-type";
 
-				// Adds the easing select to the form with #easing-type
+				// Adds the easing select to the div, on change it will animate
+				// with the specified easing equation
 				$square.easingSelect(SELECT_ID, function() {
 					var easingValue = $("#" + SELECT_ID).val(),
 						animateDuration = 1000;
